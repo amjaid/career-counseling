@@ -1,0 +1,276 @@
+.admin-page {
+  min-height: 100vh;
+  background: var(--bg-dark);
+}
+
+.admin-access-denied {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.admin-access-denied h1 {
+  font-size: 3rem;
+}
+
+.admin-access-denied a {
+  color: var(--accent);
+  margin-top: 1rem;
+}
+
+.admin-header {
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+}
+
+.admin-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-header h1 {
+  font-size: 1.75rem;
+  margin: 0;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-admin {
+  padding: 0.5rem 1rem;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.btn-logout {
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-logout:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.admin-loading {
+  text-align: center;
+  padding: 4rem;
+  color: var(--text-muted);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+}
+
+.stat-info h3 {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--accent);
+}
+
+.stat-info p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.career-distribution,
+.recent-results,
+.admin-links {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.career-distribution h2,
+.recent-results h2,
+.admin-links h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.distribution-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.distribution-item {
+  display: grid;
+  grid-template-columns: 150px 1fr 50px;
+  align-items: center;
+  gap: 1rem;
+}
+
+.career-name {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.distribution-bar {
+  height: 24px;
+  background: var(--bg-dark);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 12px;
+}
+
+.career-count {
+  text-align: right;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.no-data {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 2rem;
+}
+
+.results-table {
+  overflow-x: auto;
+}
+
+.table-header,
+.table-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.5fr 100px;
+  gap: 1rem;
+  padding: 1rem;
+  align-items: center;
+}
+
+.table-header {
+  background: var(--bg-dark);
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.table-row {
+  border-bottom: 1px solid var(--border);
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.student-name {
+  font-weight: 500;
+}
+
+.result-date {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.top-career {
+  color: var(--accent);
+}
+
+.match-percent {
+  color: var(--secondary);
+  font-weight: 600;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.admin-link-card {
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.admin-link-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.admin-link-card span {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.admin-link-card h3 {
+  color: var(--text-light);
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.admin-link-card p {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .distribution-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .table-header,
+  .table-row {
+    grid-template-columns: 1fr 1fr;
+    font-size: 0.85rem;
+  }
+  
+  .table-header span:nth-child(3),
+  .table-header span:nth-child(4),
+  .table-row span:nth-child(3),
+  .table-row span:nth-child(4) {
+    display: none;
+  }
+}

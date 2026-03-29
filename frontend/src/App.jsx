@@ -7,6 +7,7 @@ import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import Assessment from './pages/Assessment'
 import Results from './pages/Results'
+import AdminDashboard from './pages/AdminDashboard'
 import './index.css'
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
           <Route path="/dashboard" element={user ? <Dashboard user={user} /> : <Login onLogin={handleLogin} />} />
           <Route path="/assessment" element={user ? <Assessment user={user} /> : <Login onLogin={handleLogin} />} />
           <Route path="/results/:id" element={user ? <Results user={user} /> : <Login onLogin={handleLogin} />} />
+          <Route path="/admin" element={user ? <AdminDashboard user={user} onLogout={handleLogout} /> : <Login onLogin={handleLogin} />} />
         </Routes>
       </div>
     </BrowserRouter>

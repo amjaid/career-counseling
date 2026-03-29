@@ -43,6 +43,14 @@
   color: var(--accent);
 }
 
+.nav-link.admin-link {
+  color: #f59e0b;
+}
+
+.nav-link.admin-link:hover {
+  color: #fbbf24;
+}
+
 .btn-primary {
   background: var(--primary);
   color: white;

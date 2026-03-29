@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 function Navbar({ user, onLogout }) {
+  const isAdmin = user?.role === 'admin' || user?.is_staff
+
   return (
     <motion.nav 
       className="navbar"
@@ -20,6 +22,7 @@ function Navbar({ user, onLogout }) {
             <>
               <Link to="/dashboard" className="nav-link">Dashboard</Link>
               <Link to="/assessment" className="nav-link">Take Assessment</Link>
+              {isAdmin && <Link to="/admin" className="nav-link admin-link">Admin</Link>}
               <button onClick={onLogout} className="btn-logout">Logout</button>
             </>
           ) : (
