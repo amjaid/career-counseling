@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { API_ENDPOINTS } from '../config/api'
 import './Pages.css'
 
 function Dashboard({ user }) {
@@ -9,7 +10,7 @@ function Dashboard({ user }) {
 
   useEffect(() => {
     const token = localStorage.getItem('access_token')
-    fetch('http://localhost:8000/api/assessments/history/', {
+    fetch(API_ENDPOINTS.ASSESSMENTS.HISTORY, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(res => res.ok ? res.json() : [])

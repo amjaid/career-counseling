@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { API_ENDPOINTS } from '../config/api'
 import './Auth.css'
 
 function Login({ onLogin }) {
@@ -15,7 +16,7 @@ function Login({ onLogin }) {
     setLoading(true)
 
     try {
-      const res = await fetch('http://localhost:8000/api/auth/login/', {
+      const res = await fetch(API_ENDPOINTS.AUTH.LOGIN, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

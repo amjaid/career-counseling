@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard'
 import Assessment from './pages/Assessment'
 import Results from './pages/Results'
 import AdminDashboard from './pages/AdminDashboard'
+import { API_ENDPOINTS } from './config/api'
 import './index.css'
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   useEffect(() => {
     const token = localStorage.getItem('access_token')
     if (token) {
-      fetch('http://localhost:8000/api/auth/me/', {
+      fetch(API_ENDPOINTS.AUTH.ME, {
         headers: { 'Authorization': `Bearer ${token}` }
       })
         .then(res => res.ok ? res.json() : Promise.reject())

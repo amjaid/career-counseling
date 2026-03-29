@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { API_ENDPOINTS } from '../config/api'
 import './Auth.css'
 
 function Register({ onLogin }) {
@@ -24,7 +25,7 @@ function Register({ onLogin }) {
     setLoading(true)
 
     try {
-      const res = await fetch('http://localhost:8000/api/auth/register/', {
+      const res = await fetch(API_ENDPOINTS.AUTH.REGISTER, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)

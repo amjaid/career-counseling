@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { API_ENDPOINTS } from '../config/api'
 import './Pages.css'
 
 function Assessment({ user }) {
@@ -12,7 +13,7 @@ function Assessment({ user }) {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('http://localhost:8000/api/questions/')
+    fetch(API_ENDPOINTS.QUESTIONS)
       .then(res => res.json())
       .then(data => setQuestions(data))
       .catch(() => setQuestions([]))
@@ -40,7 +41,7 @@ function Assessment({ user }) {
     setSubmitting(true)
 
     try {
-      const res = await fetch('http://localhost:8000/api/assessments/submit/', {
+      const res = await fetch(API_ENDPOINTS.ASSESSMENTS.SUBMIT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

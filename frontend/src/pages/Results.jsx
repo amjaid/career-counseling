@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { API_ENDPOINTS } from '../config/api'
 import './Pages.css'
 
 function Results({ user }) {
@@ -10,7 +11,7 @@ function Results({ user }) {
 
   useEffect(() => {
     const token = localStorage.getItem('access_token')
-    fetch(`http://localhost:8000/api/assessments/${id}/`, {
+    fetch(API_ENDPOINTS.ASSESSMENTS.DETAIL(id), {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(res => res.ok ? res.json() : null)

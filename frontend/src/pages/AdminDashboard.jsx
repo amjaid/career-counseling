@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { API_ENDPOINTS } from '../config/api'
 import './AdminDashboard.css'
 import './Pages.css'
 
@@ -13,15 +14,15 @@ function AdminDashboard({ user, onLogout }) {
     const token = localStorage.getItem('access_token')
     
     // Fetch stats
-    fetch('http://localhost:8000/api/admin/stats/', {
+    fetch(API_ENDPOINTS.ADMIN.STATS, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(res => res.ok ? res.json() : {})
       .then(data => setStats(data))
       .catch(() => setStats({}))
       
-    // Fetch all results (need to add this endpoint or use existing)
-    fetch('http://localhost:8000/api/assessments/history/', {
+    // Fetch all results
+    fetch(API_ENDPOINTS.ASSESSMENTS.HISTORY, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(res => res.ok ? res.json() : [])
@@ -162,7 +163,7 @@ function AdminDashboard({ user, onLogout }) {
             >
               <h2>Quick Actions</h2>
               <div className="links-grid">
-                <a href="http://localhost:8000/admin/" target="_blank" rel="noopener noreferrer" className="admin-link-card">
+                <a href={API_ENDPOINTS.ADMIN_URL} target="_blank" rel="noopener noreferrer" className="admin-link-card">
                   <span>🔧</span>
                   <h3>Django Admin</h3>
                   <p>Manage questions, careers, users</p>
